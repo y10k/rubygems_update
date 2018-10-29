@@ -1,0 +1,19 @@
+- name: rubygems-update
+  become: yes
+  gem:
+    name: rubygems-update
+    state: latest
+    user_install: no
+    executable: "{{ rubygems_executable_path }}"
+
+- name: update_rubygems
+  become: yes
+  command: "{{ rubygems_executable_directory }}/update_rubygems"
+
+- name: gem update
+  become: yes
+  command: "{{ rubygems_executable_path }} update --no-user-install"
+
+# Local Variables:
+# indent-tabs-mode: nil
+# End:
